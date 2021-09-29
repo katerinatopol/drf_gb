@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Project, TODO
-from .serializers import ProjectSerializer, TODOSerializer
+from backend.todoapp.serializers import ProjectSerializer, TODOSerializer
 from rest_framework.pagination import LimitOffsetPagination
 
 
