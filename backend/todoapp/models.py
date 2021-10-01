@@ -31,7 +31,7 @@ class TODO(models.Model):
         auto_now=True,
     )
 
-    author = models.OneToOneField(
+    author = models.ManyToManyField(
         User,
         on_delete=models.PROTECT,
     )
