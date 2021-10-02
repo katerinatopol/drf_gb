@@ -1,7 +1,9 @@
+from rest_framework.renderers import JSONRenderer
 from rest_framework.viewsets import ModelViewSet
 from .models import Project, TODO
 from backend.todoapp.serializers import ProjectSerializer, TODOSerializer
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.generics import DestroyAPIView
 
 
 class TODOLimitOffsetPagination(LimitOffsetPagination):
@@ -13,6 +15,12 @@ class TODOViewSet(ModelViewSet):
     queryset = TODO.objects.all()
     filterset_fields = ['project']
     pagination_class = TODOLimitOffsetPagination
+
+
+class TODODestroyAPIView(DestroyAPIView):
+    renderer_classes = [JSONRenderer]
+    queryset = TODO.objects.all()
+    serializer_class = TODOSerializer
 
 
 class ProjectLimitOffsetPagination(LimitOffsetPagination):
