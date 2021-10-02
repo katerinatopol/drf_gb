@@ -14,6 +14,11 @@ class TODOViewSet(ModelViewSet):
     filterset_fields = ['project']
     pagination_class = TODOLimitOffsetPagination
 
+    def delete(self):
+        instance = self.get_object()
+        instance.is_active = False
+        instance.save()
+
 
 class ProjectLimitOffsetPagination(LimitOffsetPagination):
     default_limit = 10
