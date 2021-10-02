@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from backend.userapp.views import UserViewSet
+from userapp.views import UserViewSet
 
-from backend.todoapp.views import TODOViewSet, ProjectViewSet
+from todoapp.views import TODOViewSet, ProjectViewSet
 
 router = DefaultRouter()
 router.register('users', UserViewSet, basename='user')

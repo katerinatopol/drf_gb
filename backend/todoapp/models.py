@@ -1,5 +1,5 @@
 from django.db import models
-from backend.userapp.models import User
+from userapp.models import User
 
 
 class Project(models.Model):
@@ -24,7 +24,7 @@ class TODO(models.Model):
     text = models.CharField(
         max_length=64,
     )
-    data_create = models.DateTimeField(
+    date_create = models.DateTimeField(
         auto_now_add=True,
     )
     data_update = models.DateTimeField(
