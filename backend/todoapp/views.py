@@ -1,3 +1,5 @@
+import django_filters
+from rest_framework import filters
 from rest_framework.renderers import JSONRenderer
 from rest_framework.viewsets import ModelViewSet
 from .models import Project, TODO
@@ -8,6 +10,14 @@ from rest_framework.generics import DestroyAPIView
 
 class TODOLimitOffsetPagination(LimitOffsetPagination):
     default_limit = 20
+
+
+class TODOFilter(filters.FilterSet):
+    timestamp_gte = django_filters.DateTimeFilter(name="date_create", lookup_expr='gte')
+
+    class Meta:
+        model = TODO
+        fields = ['project', 'text', 'data_create', 'timestamp_gte']
 
 
 class TODOViewSet(ModelViewSet):
