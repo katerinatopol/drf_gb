@@ -13,19 +13,16 @@ class TODOLimitOffsetPagination(LimitOffsetPagination):
 class TODOViewSet(ModelViewSet):
     serializer_class = TODOSerializer
     queryset = TODO.objects.all()
-    filterset_fields = ['project']
     pagination_class = TODOLimitOffsetPagination
+
+    def get_queryset(self):
+        project = self.kwargs['project']
+        return TODO.objects.filter(name__contains=project)
 
     def delete(self):
         instance = self.get_object()
         instance.is_active = False
         instance.save()
-
-
-class TODODestroyAPIView(DestroyAPIView):
-    renderer_classes = [JSONRenderer]
-    queryset = TODO.objects.all()
-    serializer_class = TODOSerializer
 
 
 class ProjectLimitOffsetPagination(LimitOffsetPagination):
@@ -35,5 +32,10 @@ class ProjectLimitOffsetPagination(LimitOffsetPagination):
 class ProjectViewSet(ModelViewSet):
     serializer_class = ProjectSerializer
     queryset = Project.objects.all()
-    filterset_fields = ['name']
     pagination_class = ProjectLimitOffsetPagination
+
+    def get_queryset(self):
+        name = self.kwargs['name']
+        return Project.objects.filter(name__contains=name)
+
+
