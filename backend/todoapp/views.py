@@ -16,8 +16,8 @@ class TODOViewSet(ModelViewSet):
     pagination_class = TODOLimitOffsetPagination
 
     def get_queryset(self):
-        project = self.kwargs['project']
-        return TODO.objects.filter(name__contains=project)
+        name = self.kwargs['project']
+        return TODO.objects.filter(name__contains=name)
 
     def delete(self):
         instance = self.get_object()

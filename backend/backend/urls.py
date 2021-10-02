@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from userapp.views import UserViewSet
+from backend.userapp.views import UserViewSet
+
+from backend.todoapp.views import TODOViewSet, ProjectViewSet
 
 router = DefaultRouter()
 router.register('users', UserViewSet, basename='user')
@@ -24,4 +26,6 @@ router.register('users', UserViewSet, basename='user')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('filters/kwargs/<str:name>/', TODOViewSet.as_view())
+    path('filters/kwargs/<str:name>/', ProjectViewSet.as_view())
 ]
