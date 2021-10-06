@@ -29,7 +29,7 @@ class TODOViewSet(ModelViewSet):
         name = self.kwargs['project']
         return TODO.objects.filter(name__contains=name)
 
-    def delete(self):
+    def perform_destroy(self):
         instance = self.get_object()
         instance.is_active = False
         instance.save()
