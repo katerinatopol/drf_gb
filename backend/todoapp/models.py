@@ -33,7 +33,7 @@ class TODO(models.Model):
 
     author = models.ManyToManyField(
         User,
-        on_delete=models.PROTECT,
+
     )
     is_active = models.BooleanField(
         default=True,
