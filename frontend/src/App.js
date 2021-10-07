@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import UsersList from './components/Users.js';
 import ProjectsList from './components/Projects.js';
-import ProjectUsersList from './components/ProjectUsers.js';
+import ProjectTODOsList from './components/ProjectUsers.js';
 import UserTODOList from './components/UserTODO.js';
 import TODOList from './components/TODO.js';
 
@@ -71,7 +71,7 @@ export default App;
                         <Route path='/' exact component={() => <UsersList users = {this.state.users}/>} />
                         <Route path='/todos' exact component={() => <TODOList todos = {this.state.todos}/>} />
                         <Route path='/projects' exact component={() => <ProjectsList todos = {this.state.todos}/>} />
-                        <Route path='/project/:id' component={() => <ProjectUsersList users = {this.state.users}/>} />
+                        <Route path='/project/:id' component={() => <ProjectTODOsList todos = {this.state.todos}/>} />
                         <Route path='/user/:id' component={() => <UserTODOList todos = {this.state.todos}/>} />
                         <Redirect from='/users' to='/' />
                         <Route component={NotFound} />
