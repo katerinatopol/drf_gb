@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from .models import Project, TODO
-from ..userapp.serializers import UserSerializer
+from userapp.serializers import UserSerializer
 
 
 class ProjectSerializer(ModelSerializer):

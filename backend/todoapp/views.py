@@ -1,9 +1,9 @@
 import django_filters
-from rest_framework import filters
+from django_filters import rest_framework as filters
 from rest_framework.renderers import JSONRenderer
 from rest_framework.viewsets import ModelViewSet
 from .models import Project, TODO
-from backend.todoapp.serializers import ProjectSerializer, TODOSerializer
+from .serializers import ProjectSerializer, TODOSerializer
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.generics import DestroyAPIView
 
@@ -17,7 +17,7 @@ class TODOFilter(filters.FilterSet):
 
     class Meta:
         model = TODO
-        fields = ['project', 'text', 'data_create', 'timestamp_gte']
+        fields = ['project', 'text', 'date_create', 'timestamp_gte']
 
 
 class TODOViewSet(ModelViewSet):

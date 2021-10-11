@@ -29,6 +29,6 @@ router.register('projects', ProjectViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('filters/kwargs/<str:name>/', TODOViewSet.as_view()),
-    path('filters/kwargs/<str:name>/', ProjectViewSet.as_view())
+    # path('filters/kwargs/<str:name>/', TODOViewSet.as_view()),
+    # path('filters/kwargs/<str:name>/', ProjectViewSet.as_view())
 ]
