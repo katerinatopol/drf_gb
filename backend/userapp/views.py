@@ -20,5 +20,6 @@ class UserViewSet(mixins.ListModelMixin,
     queryset = User.objects.all()
     filterset_fields = ['username']
     pagination_class = UserLimitOffsetPagination
-    renderer_classes = [JSONRenderer]
+    # renderer_classes = [JSONRenderer]
+
 
