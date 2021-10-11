@@ -26,8 +26,11 @@ class TODOViewSet(ModelViewSet):
     pagination_class = TODOLimitOffsetPagination
 
     def get_queryset(self):
-        name = self.kwargs['project']
-        return TODO.objects.filter(name__contains=name)
+        queryset = Project.objects.all()
+        name = self.request.query_params.get('project', None)
+        if name:
+            queryset = queryset.filter(name__contains=name)
+        return queryset
 
     def perform_destroy(self):
         instance = self.get_object()
@@ -45,7 +48,10 @@ class ProjectViewSet(ModelViewSet):
     pagination_class = ProjectLimitOffsetPagination
 
     def get_queryset(self):
-        name = self.kwargs['name']
-        return Project.objects.filter(name__contains=name)
+        queryset = Project.objects.all()
+        name = self.request.query_params.get('name', None)
+        if name:
+            queryset = queryset.filter(name__contains=name)
+        return queryset
 
 
