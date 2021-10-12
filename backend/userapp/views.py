@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from .models import User
 from .serializers import UserSerializer
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions, BasePermission
 
 
 class UserLimitOffsetPagination(LimitOffsetPagination):
@@ -16,6 +17,8 @@ class UserViewSet(mixins.ListModelMixin,
                   mixins.RetrieveModelMixin,
                   mixins.UpdateModelMixin,
                   viewsets.GenericViewSet):
+
+    permission_classes = [DjangoModelPermissions]
     serializer_class = UserSerializer
     queryset = User.objects.all()
     filterset_fields = ['username']
