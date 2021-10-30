@@ -24,6 +24,9 @@ from todoapp.views import TODOViewSet, ProjectViewSet
 from userapp.views import UserViewSet
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from graphene_django.views import GraphQLView
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 
 router = DefaultRouter()

@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.test import APIClient, APITestCase, APISimpleTestCase, APIRequestFactory, force_authenticate
 from userapp.models import User
 from .views import UserViewSet
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from mixer.backend.django import mixer
 
 
