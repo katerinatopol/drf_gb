@@ -52,8 +52,6 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:5000',
     'http://127.0.0.1:5000',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
 ]
 
 MIDDLEWARE = [
@@ -92,8 +90,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'library',
+        'USER': 'katerina',
+        'PASSWORD': 'qwerty',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 
