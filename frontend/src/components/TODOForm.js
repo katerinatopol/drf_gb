@@ -35,6 +35,7 @@ class TODOForm extends React.Component {
         console.log(this.state.project, this.state.text, this.state.author)
         this.props.createTODO(this.state.project, this.state.text, this.state.author)
         event.preventDefault()
+        this.props.history.push('/todos')
     }
 
     render() {
@@ -50,4 +51,4 @@ class TODOForm extends React.Component {
     }
 }
 
-export default ProjectForm
+export default withRouter(ProjectForm)

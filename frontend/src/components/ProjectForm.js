@@ -36,6 +36,7 @@ class ProjectForm extends React.Component {
         console.log(this.state.name, this.state.authors)
         this.props.createProject(this.state.name, this.state.authors)
         event.preventDefault()
+        this.props.history.push('/projects')
     }
 
     render() {
@@ -51,4 +52,4 @@ class ProjectForm extends React.Component {
     }
 }
 
-export default ProjectForm
+export default withRouter(ProjectForm)
